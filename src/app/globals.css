@@ -7,7 +7,7 @@
   --user-chat-width: 70%;
   --sidebar-width: 260px;
   --sidebar-section-margin-top: 1.25rem;
-  --sidebar-section-first-margin-top: .5rem;
+  --sidebar-section-first-margin-top: 0.5rem;
   --sidebar-rail-width: calc(var(--spacing) * 13);
   --header-height: calc(var(--spacing) * 13);
   --white: #fff;
@@ -104,7 +104,7 @@
   --surface-error: 249 58 55;
   --scrollbar-color: #ffffff1a;
   --scrollbar-color-hover: #fff3;
-  --background: oklch(0.145 0 0);
+  --background: oklch(0.25 0 0);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
@@ -127,7 +127,7 @@
   --chart-3: oklch(0.769 0.188 70.08);
   --chart-4: oklch(0.627 0.265 303.9);
   --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
+  --sidebar: oklch(18.37% 0 0);
   --sidebar-foreground: oklch(0.985 0 0);
   --sidebar-primary: oklch(0.488 0.243 264.376);
   --sidebar-primary-foreground: oklch(0.985 0 0);
@@ -138,13 +138,8 @@
 }
 
 body {
-  background: var(--main-surface-background);
-  color: var(--text-primary);
-}
-
-.submit-button-color{
-  background-color: var(--text-quaternary);
-  color: var(--main-surface-secondary);
+  background: var(--background);
+  color: var(--foreground);
 }
 
 @theme inline {
