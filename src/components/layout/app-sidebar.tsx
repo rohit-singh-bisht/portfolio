@@ -6,6 +6,7 @@ import MenuItem from "../common/MenuItem";
 import NewChatIcon from "../icons/new-chat";
 import SearchIcon from "../icons/search";
 import LibraryIcon from "../icons/library";
+import { stat } from "fs";
 
 export default function AppSidebar() {
   const { state, toggleSidebar } = useSidebar();
@@ -24,12 +25,18 @@ export default function AppSidebar() {
     },
   ];
 
-  const handleSidebarToggle = () => {
-    toggleSidebar();
+  const handleSidebarToggle = (type?: string) => {
+    if (type === "sidebar") {
+      if (state === "collapsed") {
+        toggleSidebar();
+      }
+    } else {
+      toggleSidebar();
+    }
   };
 
   return (
-    <Sidebar collapsible="icon">
+    <Sidebar collapsible="icon" onClick={() => handleSidebarToggle("sidebar")} className={`${state === "collapsed" ? "cursor-e-resize" : "cursor-default"}`}>
       <SidebarHeader className="p-0">
         <div className="flex flex-row items-center justify-between touch:p-1.5 p-2">
           <a
@@ -46,7 +53,7 @@ export default function AppSidebar() {
               `hover:bg-[var(--surface-hover)] rounded-lg touch:h-10 touch:w-10 flex h-9 w-9 items-center justify-center group-hover:flex group-focus-visible:flex transition-all ` +
               (state === "collapsed" ? "cursor-e-resize hidden" : "cursor-w-resize visible max-md:flex")
             }
-            onClick={handleSidebarToggle}
+            onClick={() => handleSidebarToggle()}
           >
             <SidebarTrigger className="opacity-70" aria-label="Toggle Sidebar" />
           </button>
