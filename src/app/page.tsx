@@ -4,11 +4,21 @@ import { SidebarProvider } from "@/components/ui/sidebar";
 
 export default function Home() {
   return (
-    <SidebarProvider>
-      <Sidebar />
+    <div className="flex h-screen w-screen overflow-hidden">
+      <SidebarProvider
+        style={
+          {
+            "--sidebar-width": "var(--custom-sidebar-width)",
+            "--sidebar-width-icon": "var(--sidebar-rail-width)",
+          } as React.CSSProperties
+        }
+        className="shrink-0 w-auto"
+      >
+        <Sidebar />
+      </SidebarProvider>
       <main className="w-full">
         <Header />
       </main>
-    </SidebarProvider>
+    </div>
   );
 }
