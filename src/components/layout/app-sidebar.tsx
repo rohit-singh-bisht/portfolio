@@ -6,7 +6,7 @@ import MenuItem from "../common/MenuItem";
 import NewChatIcon from "../icons/new-chat";
 import SearchIcon from "../icons/search";
 import LibraryIcon from "../icons/library";
-import { stat } from "fs";
+import Link from "next/link";
 
 export default function AppSidebar() {
   const { state, toggleSidebar } = useSidebar();
@@ -39,18 +39,18 @@ export default function AppSidebar() {
     <Sidebar collapsible="icon" onClick={() => handleSidebarToggle("sidebar")} className={`${state === "collapsed" ? "cursor-e-resize" : "cursor-default"}`}>
       <SidebarHeader className="p-0">
         <div className="flex flex-row items-center justify-between touch:p-1.5 p-2">
-          <a
+          <Link
             href="/"
             className={`hover:bg-[var(--surface-hover)] touch:h-10 touch:w-10 flex h-9 w-9 items-center justify-center rounded-lg transition-all ${
               state === "collapsed" ? "group-hover:hidden group-focus-visible:hidden" : ""
             }`}
           >
             <Logo />
-          </a>
+          </Link>
 
           <button
             className={
-              `hover:bg-[var(--surface-hover)] rounded-lg touch:h-10 touch:w-10 flex h-9 w-9 items-center justify-center group-hover:flex group-focus-visible:flex transition-all ` +
+              `hover:bg-surface-hover rounded-lg touch:h-10 touch:w-10 flex h-9 w-9 items-center justify-center group-hover:flex group-focus-visible:flex transition-all ` +
               (state === "collapsed" ? "cursor-e-resize hidden" : "cursor-w-resize visible max-md:flex")
             }
             onClick={() => handleSidebarToggle()}
