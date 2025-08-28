@@ -1,4 +1,4 @@
-import Header from "@/components/layout/Header";
+import Header from "@/components/layout/header";
 import Sidebar from "@/components/layout/app-sidebar";
 import { SidebarProvider } from "@/components/ui/sidebar";
 

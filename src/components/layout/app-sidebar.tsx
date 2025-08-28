@@ -2,7 +2,7 @@
 import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupLabel, SidebarHeader, useSidebar } from "@/components/ui/sidebar";
 import { Logo } from "../icons/logo";
 import { SidebarTrigger } from "../icons/sidebar-trigger";
-import MenuItem from "../common/MenuItem";
+import MenuItem from "../common/menu-item";
 import NewChatIcon from "../icons/new-chat";
 import SearchIcon from "../icons/search";
 import LibraryIcon from "../icons/library";
@@ -20,7 +20,7 @@ export default function AppSidebar() {
       icon: <SearchIcon />,
     },
     {
-      label: "Library",
+      label: "Projects Library",
       icon: <LibraryIcon />,
     },
   ];
@@ -67,9 +67,22 @@ export default function AppSidebar() {
       <SidebarContent className="py-2 touch:py-1.5">
         <SidebarGroup>
           <SidebarGroupLabel>Chats</SidebarGroupLabel>
+
+          {state !== "collapsed" && (
+            <div>
+              <MenuItem label={"Tell me about Rohit."} />
+              <MenuItem label={"What experience does Rohit have?"} />
+              <MenuItem label={"Which frameworks does Rohit know?"} />
+              <MenuItem label={"Can I see some of Rohit’s work?"} />
+              <MenuItem label={"How can I contact Rohit?"} />
+              <MenuItem label={"Can I see Rohit’s resume?"} />
+              <MenuItem label={"What are Rohit’s strengths?"} />
+              <MenuItem label={"What is Rohit’s educational background?"} />
+            </div>
+          )}
         </SidebarGroup>
       </SidebarContent>
-      <SidebarFooter />
+      <SidebarFooter></SidebarFooter>
     </Sidebar>
   );
 }
