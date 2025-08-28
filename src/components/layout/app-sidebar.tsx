@@ -7,9 +7,11 @@ import NewChatIcon from "../icons/new-chat";
 import SearchIcon from "../icons/search";
 import LibraryIcon from "../icons/library";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function AppSidebar() {
   const { state, toggleSidebar } = useSidebar();
+  const [isClosedCompletely, setIsClosedCompletely] = useState(false);
   const menuGroups = [
     {
       label: "New chat",
@@ -34,6 +36,16 @@ export default function AppSidebar() {
       toggleSidebar();
     }
   };
+
+  useEffect(() => {
+    if (state === "collapsed") {
+      setTimeout(() => {
+        setIsClosedCompletely(true);
+      }, 250);
+    } else {
+      setIsClosedCompletely(false);
+    }
+  }, [state]);
 
   return (
     <Sidebar collapsible="icon" onClick={() => handleSidebarToggle("sidebar")} className={`${state === "collapsed" ? "cursor-e-resize" : "cursor-default"}`}>
@@ -83,17 +95,27 @@ export default function AppSidebar() {
         </SidebarGroup>
       </SidebarContent>
       <SidebarFooter>
-        <div className="group __menu-item hover:bg-[var(--menu-secondary-hover)] rounded-lg px-2 py-2 touch:p-1.5 cursor-pointer w-full">
-          <div className="flex min-w-0 items-center gap-1.5">
-            <div className="flex items-center justify-center icon">
-              <div className="flex justify-center items-center overflow-hidden rounded-full select-none bg-slate-500 h-7 w-7 shrink-0">R</div>
-            </div>
-            <div className="flex flex-col min-w-0 grow items-start justify-center">
-              <div className="truncate">Rohit Singh Bisht</div>
-              <div className="opacity-70 text-xs">Premium</div>
+        {!isClosedCompletely ? (
+          <div className="group __menu-item hover:bg-[var(--menu-secondary-hover)] rounded-lg px-1.5 py-2 touch:p-1.5 cursor-pointer w-full">
+            <div className="flex min-w-0 items-center gap-1.5">
+              <div className="flex items-center justify-center icon">
+                <div className="flex justify-center items-center overflow-hidden rounded-full select-none bg-slate-500 h-6 w-6 shrink-0 text-xs">R</div>
+              </div>
+              <div className="flex flex-col min-w-0 grow items-start justify-center truncate">
+                <div className="truncate">Rohit Singh Bisht</div>
+                <div className="opacity-70 text-xs">Premium</div>
+              </div>
             </div>
           </div>
-        </div>
+        ) : (
+          <div className="group __menu-item hover:bg-[var(--menu-secondary-hover)] rounded-lg px-1.5 py-1.5 mb-2 touch:p-1.5 cursor-pointer w-full">
+            <div className="flex min-w-0 items-center gap-1.5">
+              <div className="flex items-center justify-center icon">
+                <div className="flex justify-center items-center overflow-hidden rounded-full select-none bg-slate-500 h-6 w-6 shrink-0 text-xs">R</div>
+              </div>
+            </div>
+          </div>
+        )}
       </SidebarFooter>
     </Sidebar>
   );
