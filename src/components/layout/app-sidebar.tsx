@@ -37,7 +37,7 @@ export default function AppSidebar() {
 
   return (
     <Sidebar collapsible="icon" onClick={() => handleSidebarToggle("sidebar")} className={`${state === "collapsed" ? "cursor-e-resize" : "cursor-default"}`}>
-      <SidebarHeader className="p-0">
+      <SidebarHeader className="p-0 pb-4">
         <div className="flex flex-row items-center justify-between touch:p-1.5 p-2">
           <Link
             href="/"
@@ -50,7 +50,7 @@ export default function AppSidebar() {
 
           <button
             className={
-              `hover:bg-surface-hover rounded-lg touch:h-10 touch:w-10 flex h-9 w-9 items-center justify-center group-hover:flex group-focus-visible:flex transition-all ` +
+              `hover:bg-[var(--surface-hover)] rounded-lg touch:h-10 touch:w-10 flex h-9 w-9 items-center justify-center group-hover:flex group-focus-visible:flex transition-all ` +
               (state === "collapsed" ? "cursor-e-resize hidden" : "cursor-w-resize visible max-md:flex")
             }
             onClick={() => handleSidebarToggle()}
@@ -64,7 +64,7 @@ export default function AppSidebar() {
           ))}
         </aside>
       </SidebarHeader>
-      <SidebarContent className="py-2 touch:py-1.5">
+      <SidebarContent>
         <SidebarGroup>
           <SidebarGroupLabel>Chats</SidebarGroupLabel>
 
@@ -82,7 +82,19 @@ export default function AppSidebar() {
           )}
         </SidebarGroup>
       </SidebarContent>
-      <SidebarFooter></SidebarFooter>
+      <SidebarFooter>
+        <div className="group __menu-item hover:bg-[var(--menu-secondary-hover)] rounded-lg px-2 py-2 touch:p-1.5 cursor-pointer w-full">
+          <div className="flex min-w-0 items-center gap-1.5">
+            <div className="flex items-center justify-center icon">
+              <div className="flex justify-center items-center overflow-hidden rounded-full select-none bg-slate-500 h-7 w-7 shrink-0">R</div>
+            </div>
+            <div className="flex flex-col min-w-0 grow items-start justify-center">
+              <div className="truncate">Rohit Singh Bisht</div>
+              <div className="opacity-70 text-xs">Premium</div>
+            </div>
+          </div>
+        </div>
+      </SidebarFooter>
     </Sidebar>
   );
 }
