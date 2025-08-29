@@ -1,6 +1,7 @@
 import Header from "@/components/layout/header";
 import Sidebar from "@/components/layout/app-sidebar";
 import { SidebarProvider } from "@/components/ui/sidebar";
+import ChatMessageInput from "@/components/common/chat-message-input";
 
 export default function Home() {
   return (
@@ -16,8 +17,10 @@ export default function Home() {
       >
         <Sidebar />
       </SidebarProvider>
-      <main className="w-full">
+      <main className="w-full flex flex-col">
         <Header />
+        <div></div>
+        <ChatMessageInput />
       </main>
     </div>
   );
