@@ -1,13 +1,26 @@
+import SendButtonIcon from "../icons/send-button";
+
 export default function ChatMessageInput() {
   return (
-    <div className="p-2 border-t touch:p-2.5 w-full flex items-center gap-2 bg-gray-50 dark:bg-gray-900">
-      {/* <textarea
-        className="w-full resize-none rounded-md border border-gray-300 bg-white p-2 text-sm shadow-sm placeholder:text-gray-400 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:placeholder:text-gray-500 sm:text-sm"
-        rows={1}
-        placeholder="Type your message..."
-      ></textarea> */}
-      <div className="max-w-70">
-        <div contentEditable="true" className="w-full"></div>
+    <div
+      className="
+        [--thread-content-max-width:32rem] 
+        sm:[--thread-content-max-width:40rem] 
+        lg:[--thread-content-max-width:48rem] 
+        mx-auto 
+        max-w-[var(--thread-content-max-width)] 
+        flex-1
+      "
+    >
+      <div className="p-2.5 ps-5 w-full flex items-end gap-2 dark:bg-[#303030] rounded-4xl mb-6">
+        <div className="w-full">
+          <div contentEditable="true" className="w-full h-full outline-none"></div>
+        </div>
+        <div>
+          <button className="text-black font-semibold p-2 rounded-full pointer flex items-center justify-center rounded-full bg-[var(--text-quaternary)]">
+            <SendButtonIcon />
+          </button>
+        </div>
       </div>
     </div>
   );

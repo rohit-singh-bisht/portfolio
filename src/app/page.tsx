@@ -22,10 +22,8 @@ export default function Home() {
         <div className="relative flex basis-auto flex-col grow overflow-hidden">
           <div className="relative h-full"></div>
         </div>
-        <div className="text-base mx-auto [--thread-content-margin:--spacing(4)] @[37rem]:[--thread-content-margin:--spacing(6)] @[72rem]:[--thread-content-margin:--spacing(16)] px-(--thread-content-margin)">
-          <div className="[--thread-content-max-width:32rem] @[34rem]:[--thread-content-max-width:40rem] @[64rem]:[--thread-content-max-width:48rem] mx-auto max-w-(--thread-content-max-width) flex-1">
-            <ChatMessageInput />
-          </div>
+        <div className="text-base mx-auto w-full">
+          <ChatMessageInput />
         </div>
       </main>
     </div>
