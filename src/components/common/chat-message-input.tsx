@@ -13,8 +13,8 @@ export default function ChatMessageInput() {
       "
     >
       <div className="p-2.5 ps-5 w-full flex items-end gap-2 dark:bg-[#303030] rounded-4xl mb-6">
-        <div className="w-full">
-          <div contentEditable="true" className="w-full h-full outline-none"></div>
+        <div className="w-full h-full flex items-center">
+          <div contentEditable="true" className="w-full outline-none"></div>
         </div>
         <div>
           <button className="text-black font-semibold p-2 rounded-full pointer flex items-center justify-center rounded-full bg-[var(--text-quaternary)]">
