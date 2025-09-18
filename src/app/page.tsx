@@ -19,10 +19,14 @@ export default function Home() {
       </SidebarProvider>
       <main className="w-full flex flex-col">
         <Header />
-        <div className="relative flex basis-auto flex-col grow overflow-hidden">
-          <div className="relative h-full"></div>
+        <div className="relative flex basis-auto justify-end flex-col grow overflow-hidden">
+          <div className="flex justify-center">
+            <div className="justify-center mb-7 flex h-full text-2xl text-center px-6">
+              <h1 className="text-[28px]">How can I help?</h1>
+            </div>
+          </div>
         </div>
-        <div className="text-base mx-auto w-full">
+        <div className="text-base mx-auto w-full grow">
           <ChatMessageInput />
         </div>
       </main>
