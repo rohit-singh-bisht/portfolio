@@ -1,6 +1,28 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
 import SendButtonIcon from "../icons/send-button";
 
 export default function ChatMessageInput() {
+  const divRef = useRef<HTMLDivElement>(null);
+  const [text, setText] = useState("");
+
+  useEffect(() => {
+    const el = divRef.current;
+    if (!el) return;
+
+    const handleInput = () => {
+      const text = el.innerText.trim();
+      setText(text);
+      if (el.innerText.trim() === "" || el.innerHTML.trim() === "<br>") {
+        el.innerHTML = "";
+      }
+    };
+
+    el.addEventListener("input", handleInput);
+    return () => el.removeEventListener("input", handleInput);
+  }, []);
+
   return (
     <div
       className="
@@ -14,10 +36,13 @@ export default function ChatMessageInput() {
     >
       <div className="p-2.5 ps-5 w-full flex items-end gap-2 dark:bg-[#303030] rounded-4xl mb-6">
         <div className="w-full h-[-webkit-fill-available] flex items-center">
-          <div contentEditable="true" className="w-full outline-none"></div>
+          <div contentEditable="true" ref={divRef} className="w-full outline-none relative" data-placeholder="Ask anything"></div>
         </div>
         <div>
-          <button className="text-black font-semibold p-2 rounded-full pointer flex items-center justify-center rounded-full bg-[var(--text-quaternary)]">
+          <button
+            className="text-black font-semibold p-2 rounded-full cursor-pointer flex items-center justify-center rounded-full bg-[var(--text-primary)] transition disabled:bg-[var(--text-quaternary)] disabled:cursor-default"
+            disabled={!text.trim()}
+          >
             <SendButtonIcon />
           </button>
         </div>
