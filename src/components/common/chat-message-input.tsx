@@ -34,7 +34,7 @@ export default function ChatMessageInput() {
         flex-1
       "
     >
-      <div className="p-2.5 ps-5 w-full flex items-end gap-2 dark:bg-[#303030] rounded-4xl mb-6">
+      <div className="p-2.5 ps-5 w-full flex items-end gap-2 dark:bg-[#303030] shadow-short rounded-4xl mb-6">
         <div className="w-full h-[-webkit-fill-available] flex items-center">
           <div contentEditable="true" ref={divRef} className="w-full outline-none relative" data-placeholder="Ask anything"></div>
         </div>
